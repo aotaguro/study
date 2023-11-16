@@ -10,7 +10,7 @@ git config --global user.name "Your Name"
 
 
 To run the app:
-python -m SimpleHTTPServer
+python3 -m http.server
 
 Then open localhost:8080 on your browser.
 
