@@ -1,7 +1,36 @@
 h1 { 
-    color: black;
+    color: black; 
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Trebuchet MS'; 
 }
 
 div { 
-    text-align: center;
-}
+   border: solid;
+   margin: 10px; 
+   float: left;
+} 
+
+div.box1 {
+    
+    width: 400px;
+    height: 400px;
+  }
+  
+  div.box2 {
+   
+    width: 200px;
+    height: 400px;
+  }
+  
+  div.box3 {
+    
+    width: 200px;
+    height: 200px;
+  }
+  
+  div.box4 {
+    
+    width: 400px;
+    height: 200px;
+  }
