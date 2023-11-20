@@ -34,11 +34,13 @@ div.box1 {
     width: 200px;
     height: 200px;
   }
+  
  div.box5 { 
-     
+
   width: 425px; 
   height: 175px; 
  }
+ 
   body { 
     background-color: rgb(195, 205, 220)
   }
