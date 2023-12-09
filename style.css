@@ -31,3 +31,20 @@ div.box4 {
   justify-content: center;
   border: none;
 }
+.calender-button {
+  position: relative; /* Set the positioning context */
+  top: -220px; /* Move the button up by x pixels */
+  margin-left: 195px;
+  font-size: 18px;
+  padding: 85px 62px; /* Adjust the padding for a more reasonable size */
+  background-color: rgb(119, 138, 213);
+}
+
+.studymode-button {
+  position: relative; /* Set the positioning context */
+  top: -220px; /* Move the button up by x pixels */
+  margin-left: 18px;
+  font-size: 18px;
+  padding: 85px 55px; /* Adjust the padding for a more reasonable size */
+  background-color: rgb(119, 138, 213);
+}
