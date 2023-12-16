@@ -15,7 +15,7 @@ body {
 }
 
 div {
-  border: solid;
+  border: none;
   margin: 10px;
 }
 
@@ -26,6 +26,7 @@ div.box4 {
   width: 200px;
   height: 200px;
 }
+
 .container {
   display: flex;
   justify-content: center;
@@ -38,6 +39,8 @@ div.box4 {
   font-size: 18px;
   padding: 85px 62px; /* Adjust the padding for a more reasonable size */
   background-color: rgb(119, 138, 213);
+  border-radius: 40px;
+  font-family: 'Trebuchet MS';
 }
 
 .studymode-button {
@@ -47,6 +50,8 @@ div.box4 {
   font-size: 18px;
   padding: 85px 55px; /* Adjust the padding for a more reasonable size */
   background-color: rgb(119, 138, 213);
+  border-radius: 40px;
+  font-family: 'Trebuchet MS'; 
 }
 .notepad-button {
   position: relative; /* Set the positioning context */
@@ -55,6 +60,8 @@ div.box4 {
   font-size: 18px;
   padding: 85px 65px; /* Adjust the padding for a more reasonable size */
   background-color: rgb(119, 138, 213);
+  border-radius: 40px;
+  font-family: 'Trebuchet MS';
 }
 .overview-button {
   position: relative; /* Set the positioning context */
@@ -63,4 +70,6 @@ div.box4 {
   font-size: 18px;
   padding: 85px 65px; /* Adjust the padding for a more reasonable size */
   background-color: rgb(119, 138, 213);
+  border-radius: 40px;
+  font-family: 'Trebuchet MS';
 }
