@@ -5,10 +5,19 @@ let selectYear = document.getElementById("year");
 let selectMonth = document.getElementById("month");
 
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+let events = [
+    {
+        date: new Date(2023, 11, 17),
+        name: "Science project" 
+    } ,
+    { 
+        date: new Date(2023, 11, 18),
+        name: "Math homework"
+    }
+];
 
 let monthAndYear = document.getElementById("monthAndYear");
 showCalendar(currentMonth, currentYear);
-
 
 function next() {
     currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
@@ -29,7 +38,6 @@ function jump() {
 }
 
 function showCalendar(month, year) {
-
     let firstDay = (new Date(year, month)).getDay();
     let daysInMonth = 32 - new Date(year, month, 32).getDate();
 
@@ -49,33 +57,53 @@ function showCalendar(month, year) {
         // creates a table row
         let row = document.createElement("tr");
 
-        //creating individual cells, filing them up with data.
         for (let j = 0; j < 7; j++) {
+            //creating individual cells, filing them up with data.
+            let cell = document.createElement("td");
             if (i === 0 && j < firstDay) {
-                let cell = document.createElement("td");
                 let cellText = document.createTextNode("");
                 cell.appendChild(cellText);
                 row.appendChild(cell);
             }
             else if (date > daysInMonth) {
                 break;
-            }
-
-            else {
-                let cell = document.createElement("td");
+            } else {
                 let cellText = document.createTextNode(date);
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cell.classList.add("bg-info");
                 } // color today's date
+
+                for (let eventIndex = 0; eventIndex < events.length; eventIndex++) {
+                    let currentEvent = events[eventIndex];
+                    if (date === currentEvent.date.getDate() && year === currentEvent.date.getFullYear() && month === currentEvent.date.getMonth()) {
+                        const div = document.createElement('div');
+                        div.classList.add('event');
+                        div.textContent = currentEvent.name;
+                        cell.appendChild(div);
+                    }
+                }
+
+        
+               // Adding click event listener to each cell
+cell.addEventListener("click", () => {
+    // Use prompt to get user input
+    const description = prompt("Enter a description:");
+
+    // Check if the user clicked "Cancel" or entered an empty description
+    if (description === null || description.trim() === "") {
+        alert("No description provided.");
+    } else {
+        // You can do something with the description here, e.g., display it
+        alert(`Description: ${description}`);
+    }
+});
+
                 cell.appendChild(cellText);
                 row.appendChild(cell);
                 date++;
             }
-
-
         }
 
         tbl.appendChild(row); // appending each row into calendar body.
     }
-
 }
