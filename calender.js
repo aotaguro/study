@@ -5,16 +5,7 @@ let selectYear = document.getElementById("year");
 let selectMonth = document.getElementById("month");
 
 let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-let events = [
-    {
-        date: new Date(2023, 11, 17),
-        name: "Science project" 
-    } ,
-    { 
-        date: new Date(2023, 11, 18),
-        name: "Math homework"
-    }
-];
+let events = []
 
 let monthAndYear = document.getElementById("monthAndYear");
 showCalendar(currentMonth, currentYear);
@@ -83,18 +74,31 @@ function showCalendar(month, year) {
                     }
                 }
 
-        
-               // Adding click event listener to each cell
-cell.addEventListener("click", () => {
+       // Adding click event listener to each cell
+cell.addEventListener("click", (event) => {
     // Use prompt to get user input
-    const description = prompt("Enter a description:");
+    const description = prompt("Enter assignment description:");
 
     // Check if the user clicked "Cancel" or entered an empty description
     if (description === null || description.trim() === "") {
         alert("No description provided.");
     } else {
-        // You can do something with the description here, e.g., display it
-        alert(`Description: ${description}`);
+        // Create a div element for the event
+        const eventDiv = document.createElement('div');
+        eventDiv.classList.add('event');
+        eventDiv.textContent = description;
+
+        // Append the event div to the clicked cell
+        cell.appendChild(eventDiv);
+
+        // Adding contextmenu event listener to each event div
+        eventDiv.addEventListener("contextmenu", (event) => {
+            // Prevent the default context menu
+            event.preventDefault();
+            
+            // Remove the event div
+            cell.removeChild(eventDiv);
+        });
     }
 });
 
