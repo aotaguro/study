@@ -1,15 +1,138 @@
-<html>
-    <head>
-        <title>Study Project</title>
-        <link rel="stylesheet" href="studymode_style.css">
-        <script src="main.js"></script>
-    </head>
-    
-    <body>
-        <h1>Studymode</h1>
-    </body>
-    
-    <a href="index.html">
-        <button>Back</button>
-      </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyMode</title>
+    <h1>StudyMode</h1>
+    <style>
+        h1 {
+            font-family: 'Trebuchet MS';
+            text-align: center;
+            color: rgb(119, 138, 213);
+            margin: 40px 0;
+            padding: 0;
+            font-size: 50px;
+        }
+        body {
+            font-family: 'Trebuchet MS';
+            text-align: center;
+            margin: 0;
+            background-color: rgb(78, 81, 85);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #stopwatch {
+            font-size: 5.5em;
+            margin-bottom: 20px;
+        }
+
+        #controls {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            font-size: 1.5em;
+            font-family: 'Trebuchet MS';
+            margin: 0 10px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: rgb(119, 138, 213);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #backButton {
+            font-size: 1.5em;
+            font-family: 'Trebuchet MS';
+            margin-top: auto;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            margin-right: auto;
+            padding: 10px;
+            cursor: pointer;
+            background-color: rgb(119, 138, 213);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="stopwatch">00:00:00</div>
+    <div id="controls">
+        <button onclick="startStopwatch()">Start</button>
+        <button onclick="stopStopwatch()">Stop</button>
+        <button onclick="resetStopwatch()">Reset</button>
+    </div>
+    <button id="backButton" onclick="goBack()">Back</button>
+
+    <script>
+        let isRunning = false;
+        let timer;
+        let time = 0;
+        let breakPaused = false;
+
+        function startStopwatch() {
+            if (!isRunning && !breakPaused) {
+                isRunning = true;
+                timer = setInterval(updateStopwatch, 1000);
+            }
+        }
+
+        function stopStopwatch() {
+            if (isRunning) {
+                isRunning = false;
+                clearInterval(timer);
+                if (breakPaused) {
+                    // If paused during break, reset break state
+                    breakPaused = false;
+                }
+            }
+        }
+
+        function resetStopwatch() {
+            stopStopwatch();
+            time = 0;
+            updateStopwatchDisplay();
+        }
+
+        function updateStopwatch() {
+            time++;
+            updateStopwatchDisplay();
+            checkBreak();
+        }
+
+        function updateStopwatchDisplay() {
+            let hours = Math.floor(time / 3600);
+            let minutes = Math.floor((time % 3600) / 60);
+            let seconds = time % 60;
+
+            document.getElementById('stopwatch').textContent = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+        }
+
+        function pad(value) {
+            return value < 10 ? `0${value}` : value;
+        }
+
+        function checkBreak() {
+            if (time % 1800 === 0 && !breakPaused) { // Every 30 minute
+                alert('Take a short break! No more than 10 minutes.\nPress "Stop" to end the break and "Start" to continue.');
+                breakPaused = true;
+                stopStopwatch();
+            }
+        }
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
 </html>
