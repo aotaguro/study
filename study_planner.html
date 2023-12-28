@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Planner</title>
+    <style>
+        body {
+            font-family: 'Trebuchet MS';
+            background-color: rgb(78, 81, 85);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: rgb(119, 138, 213);
+        }
+
+        h1 {
+            color: rgb(119, 138, 213);
+            margin-bottom: 20px;
+        }
+
+        label {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input {
+            margin-bottom: 10px;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        #calendar {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #timeline {
+            display: flex;
+            overflow-x: auto;
+        }
+        .event {
+            background-color: rgb(119, 138, 213);
+            color: white;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        #backButton {
+            font-size: 1.5em;
+            margin-top: 20px; /* Adjusted margin */
+            margin-left: 20px; /* Adjusted margin */
+            padding: 15px;
+            cursor: pointer;
+            background-color: rgb(119, 138, 213);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            position: fixed; /* Fixed position */
+            top: 0; /* Position from top */
+            left: 0; /* Position from left */
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Study Planner</h1>
+
+    <label for="selectedDate">Select Date:</label>
+    <input type="date" id="selectedDate" onchange="updateCalendar()">
+    
+    <div id="eventContainer">
+        <label for="eventName">Study Reminder:</label>
+        <input type="text" id="eventName" placeholder="Enter study reminder">
+        <br>
+        <label for="eventDateTime">Date and Time:</label>
+        <input type="datetime-local" id="eventDateTime">
+        <br>
+        <button onclick="addEvent()">Add Study Reminder</button>
+    </div>
+
+    <div id="calendar"></div>
+
+    <div id="timeline"></div>
+
+    <script>
+        let eventsByDate = {};
+        let currentDate = new Date();
+        updateCalendar();
+        setInterval(checkReminders, 1000 * 60); // Check every minute
+
+        function updateCalendar() {
+            const selectedDateInput = document.getElementById("selectedDate");
+            currentDate = new Date(selectedDateInput.value);
+            renderCalendar();
+            renderTimeline();
+        }
+
+        function renderCalendar() {
+            const calendarContainer = document.getElementById("calendar");
+            const eventContainer = document.getElementById("eventContainer");
+            calendarContainer.innerHTML = ""; // Clear previous content
+            eventContainer.style.display = "block";
+
+            const dateHeader = document.createElement("h2");
+            dateHeader.textContent = currentDate.toDateString();
+            calendarContainer.appendChild(dateHeader);
+        }
+
+        function renderTimeline() {
+            const timelineContainer = document.getElementById("timeline");
+            timelineContainer.innerHTML = ""; // Clear previous content
+
+            const selectedDateKey = formatDate(currentDate);
+            const events = eventsByDate[selectedDateKey] || [];
+
+            events.forEach(event => {
+                const eventElement = document.createElement("div");
+                eventElement.className = "event";
+                eventElement.textContent = `${event.name} - ${event.dateTime}`;
+                eventElement.addEventListener("contextmenu", (e) => handleRightClick(e, event));
+                timelineContainer.appendChild(eventElement);
+            });
+        }
+
+        function addEvent() {
+            const eventNameInput = document.getElementById("eventName");
+            const eventDateTimeInput = document.getElementById("eventDateTime");
+
+            const eventDetails = {
+                name: eventNameInput.value,
+                dateTime: eventDateTimeInput.value,
+            };
+
+            const selectedDateKey = formatDate(currentDate);
+            eventsByDate[selectedDateKey] = eventsByDate[selectedDateKey] || [];
+            eventsByDate[selectedDateKey].push(eventDetails);
+
+            eventNameInput.value = "";
+            eventDateTimeInput.value = "";
+
+            renderTimeline();
+        }
+
+        function handleRightClick(event, selectedEvent) {
+            event.preventDefault(); // Prevent the default context menu
+            const confirmation = confirm(`Do you want to delete the study reminder "${selectedEvent.name}"?`);
+            
+            if (confirmation) {
+                const selectedDateKey = formatDate(currentDate);
+                eventsByDate[selectedDateKey] = eventsByDate[selectedDateKey].filter(event => event !== selectedEvent);
+                renderTimeline();
+            }
+        }
+
+        function checkReminders() {
+            const currentTime = new Date();
+            const selectedDateKey = formatDate(currentDate);
+            const events = eventsByDate[selectedDateKey] || [];
+
+            events.forEach(event => {
+                const eventDateTime = new Date(event.dateTime);
+
+                if (currentTime > eventDateTime && !event.alerted) {
+                    alert(`Study reminder "${event.name}"!`);
+                    event.alerted = true; // Set a flag to avoid repeated alerts
+                    renderTimeline(); // Refresh the timeline after marking an event as alerted
+                }
+            });
+        }
+
+        function formatDate(date) {
+            const year = date.getFullYear();
+            const month = (date.getMonth() + 1).toString().padStart(2, '0');
+            const day = date.getDate().toString().padStart(2, '0');
+            return `${year}-${month}-${day}`;
+        }
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+      <button id="backButton" onclick="goBack()">Back</button>
+
+</body>
+</html>
