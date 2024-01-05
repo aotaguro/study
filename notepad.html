@@ -1,17 +1,175 @@
-<html>
-    <head>
-        <title>Study Project</title>
-        <link rel="stylesheet" href="notepad_style.css">
-        <script src="main.js"></script>
-    </head>
-    
-    <body>
-        <h1>Notepad</h1>
-        </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: rgb(78, 81, 85);
+            color: #ffff;
+            position: relative;
+        }
 
-       
-        </body>
-        <a href="index.html">
-            <button>Back</button>
-          </a>
+        h1 {
+            color: rgb(119, 138, 213);
+            text-align: center; /* Centering the Notepad title */
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        input, textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: rgb(119, 138, 213);
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+        }
+
+        button.edit {
+            background-color: #28a745;
+        }
+
+        button.delete {
+            background-color: #dc3545;
+        }
+
+        #notes-container {
+            margin-top: 20px;
+        }
+
+        .note {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .note strong {
+            font-size: 18px;
+            color: rgb(119, 138, 213);
+        }
+
+        .note-content {
+            color: rgb(119, 138, 213);
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        /* Styling for the back button */
+        #backButton {
+            font-size: 1.5em;
+            font-family: 'Trebuchet MS';
+            margin-top: auto;
+            margin-bottom: 20px;
+            margin-left: 10px;
+            margin-right: auto;
+            padding: 10px;
+            cursor: pointer;
+            background-color: rgb(119, 138, 213);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html">
+        <button id="backButton">Back</button>
+    </a>
+
+    <h1>Notepad</h1>
+    <label for="noteTitle">Title:</label>
+    <input type="text" id="noteTitle">
+    <br>
+    <label for="noteContent">Content:</label>
+    <textarea id="noteContent"></textarea>
+    <br>
+    <button onclick="saveNote()">Save Note</button>
+    <button onclick="loadNotes()">Load Notes</button>
+
+    <div id="notes-container"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            loadNotes();
+        });
+
+        function saveNote() {
+            const title = document.getElementById("noteTitle").value;
+            const content = document.getElementById("noteContent").value;
+
+            if (title.trim() !== '' || content.trim() !== '') {
+                const notes = JSON.parse(localStorage.getItem("notes")) || [];
+                notes.push({ title, content });
+                localStorage.setItem("notes", JSON.stringify(notes));
+                loadNotes();
+                clearInputFields();
+            } else {
+                alert("Please enter a title or content before saving.");
+            }
+        }
+
+        function loadNotes() {
+            const notesContainer = document.getElementById("notes-container");
+            notesContainer.innerHTML = "";
+
+            const notes = JSON.parse(localStorage.getItem("notes")) || [];
+
+            notes.forEach((note, index) => {
+                const noteElement = document.createElement("div");
+                noteElement.className = "note";
+                noteElement.innerHTML = `<strong>${note.title}</strong>
+                    <div class="note-content">${note.content}</div>
+                    <button class="edit" onclick="editNote(${index})">Edit</button>
+                    <button class="delete" onclick="deleteNote(${index})">Delete</button>`;
+                notesContainer.appendChild(noteElement);
+            });
+        }
+
+        function editNote(index) {
+            const notes = JSON.parse(localStorage.getItem("notes")) || [];
+            const noteToEdit = notes[index];
+
+            document.getElementById("noteTitle").value = noteToEdit.title;
+            document.getElementById("noteContent").value = noteToEdit.content;
+
+            // Remove the edited note from the list
+            notes.splice(index, 1);
+            localStorage.setItem("notes", JSON.stringify(notes));
+
+            loadNotes(); // Reload the notes after removing the edited one
+        }
+
+        function deleteNote(index) {
+            const notes = JSON.parse(localStorage.getItem("notes")) || [];
+            notes.splice(index, 1);
+            localStorage.setItem("notes", JSON.stringify(notes));
+            loadNotes();
+        }
+
+        function clearInputFields() {
+            document.getElementById("noteTitle").value = "";
+            document.getElementById("noteContent").value = "";
+        }
+    </script>
+</body>
 </html>
