@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Planner</title>
+    <title>StudyPlanner</title>
     <style>
+        /* Your CSS styles go here */
         body {
             font-family: 'Trebuchet MS';
             background-color: rgb(78, 81, 85);
@@ -53,7 +54,7 @@
             white-space: nowrap;
             cursor: pointer;
         }
-         #backButton {
+        #backButton {
             font-size: 1em;
             font-family: 'Trebuchet MS';
             margin-top: auto;
@@ -67,7 +68,6 @@
             border: none;
             border-radius: 5px;
         }
-
     </style>
 </head>
 <body>
@@ -95,6 +95,14 @@
         let currentDate = new Date();
         updateCalendar();
         setInterval(checkReminders, 1000 * 60); // Check every minute
+
+        // Load events from Local Storage on page load
+        window.onload = function () {
+            if (localStorage.getItem('eventsByDate')) {
+                eventsByDate = JSON.parse(localStorage.getItem('eventsByDate'));
+                renderTimeline();
+            }
+        }
 
         function updateCalendar() {
             const selectedDateInput = document.getElementById("selectedDate");
@@ -147,6 +155,9 @@
             eventDateTimeInput.value = "";
 
             renderTimeline();
+            
+            // Save events to Local Storage after adding a new event
+            saveEventsToLocalStorage();
         }
 
         function handleRightClick(event, selectedEvent) {
@@ -157,6 +168,9 @@
                 const selectedDateKey = formatDate(currentDate);
                 eventsByDate[selectedDateKey] = eventsByDate[selectedDateKey].filter(event => event !== selectedEvent);
                 renderTimeline();
+                
+                // Save events to Local Storage after deleting an event
+                saveEventsToLocalStorage();
             }
         }
 
@@ -172,8 +186,15 @@
                     alert(`Study reminder "${event.name}"!`);
                     event.alerted = true; // Set a flag to avoid repeated alerts
                     renderTimeline(); // Refresh the timeline after marking an event as alerted
+                    
+                    // Save events to Local Storage after marking an event as alerted
+                    saveEventsToLocalStorage();
                 }
             });
+        }
+
+        function saveEventsToLocalStorage() {
+            localStorage.setItem('eventsByDate', JSON.stringify(eventsByDate));
         }
 
         function formatDate(date) {
@@ -182,11 +203,11 @@
             const day = date.getDate().toString().padStart(2, '0');
             return `${year}-${month}-${day}`;
         }
+
         function goBack() {
             window.location.href = 'index.html';
         }
     </script>
-      <button id="backButton" onclick="goBack()">Back</button>
-
+    <button id="backButton" onclick="goBack()">Back</button>
 </body>
 </html>
