@@ -1,33 +1,62 @@
 <html>
-    <head>
-        <title>Study Project</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="main.js"></script>
-    </head>
-    
-    <body>
-        <h1>Studysort</h1>
-        
-<div class="container">
-  <div class="box1"></div>
-  <div class="box2"></div>
-  <div class="box3"></div>
-  <div class="box4"></div>
-</div>
 
-<script src="notifications.js"></script>
+<head>
+  <title>Study Project</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <h1>Studysort</h1>
+
+  <div class="container">
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <div class="box4"></div>
+  </div>
+  
+    <!-- Circular "?" Button -->
+    <button id="helpButton" onclick="toggleHelp()">?</button>
+
+    <!-- White Box (initially hidden) -->
+    <div id="helpBox">
+        <p>Welcome To StudySort!<br><br>Calendar:<br><br> A simple calendar tool to manage and view events.To make an event click on a cell and input a name.
+           To delete any events right click on top of them. Use the buttons on the bottom to navigate <br><br>
+          StudyMode:<br><br>A stopwatch style studying clock that alerts you after 30 min of studying to give yourself a short break. 
+        Use start, stop, and reset features to perform their respective actions.<br><br>Notepad:<br><br>A simple notepad with creating, editing, and deleting features with their respective buttons<br><br>
+       StudyPlanner:<br><br>Set studyreminders to alert you to do certain tasks. Use the dropdown menu to select dates and times for you to get notified. 
+       Make sure to name your events and hit the add event button. Keep in mind you can only see notifications for that day but you can create them for different days. 
+       You can delete the events that you create by right clicking on them. 
+      </p>
+    </div>
+
+  
+  <script src="notifications.js"></script>
+
+  <script>
+    function toggleHelp() {
+        var helpBox = document.getElementById("helpBox");
+        if (helpBox.style.display === "none") {
+            helpBox.style.display = "block";
+        } else {
+            helpBox.style.display = "none";
+        }
+    }
+</script>
 </body>
 
-<a href="calender.html">
-  <button class ="calender-button">Calender</button>
+<a href="calendar.html">
+  <button class="calender-button">Calendar</button>
 </a>
 <a href="studymode.html">
-  <button class ="studymode-button">Studymode</button>
+  <button class="studymode-button">Studymode</button>
 </a>
 <a href="notepad.html">
-  <button class ="notepad-button">NotePad</button>
+  <button class="notepad-button">NotePad</button>
 </a>
 <a href="study_planner.html">
-  <button class ="overview-button">StudyPlanner</button>
+  <button class="overview-button">StudyPlanner</button>
 </a>
+
 </html>

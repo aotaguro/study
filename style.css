@@ -73,3 +73,33 @@ div.box4 {
   border-radius: 40px;
   font-family: 'Trebuchet MS';
 }
+ /* Style for the circular "?" button */
+ #helpButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgb(119, 138, 213);
+  color: black;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 18px;
+}
+
+/* Style for the white box (fixed size with scrolling) */
+#helpBox {
+  display: none;
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  width: 300px; /* Adjust the width as needed */
+  height: 200px; /* Adjust the height as needed */
+  padding: 15px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: auto; /* Enable scrolling */
+}
