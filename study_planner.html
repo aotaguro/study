@@ -72,10 +72,10 @@
 </head>
 <body>
     <h1>Study Planner</h1>
-
+<!-- 
     <label for="selectedDate">Select Date:</label>
     <input type="date" id="selectedDate" onchange="updateCalendar()">
-    
+     -->
     <div id="eventContainer">
         <label for="eventName">Study Reminder:</label>
         <input type="text" id="eventName" placeholder="Enter study reminder">
@@ -89,44 +89,15 @@
     <div id="calendar"></div>
 
     <div id="timeline"></div>
-
+    <script src="notifications.js"></script>
     <script>
-        let eventsByDate = {};
-        let currentDate = new Date();
-        updateCalendar();
-        setInterval(checkReminders, 1000 * 60); // Check every minute
-
-        // Load events from Local Storage on page load
-        window.onload = function () {
-            if (localStorage.getItem('eventsByDate')) {
-                eventsByDate = JSON.parse(localStorage.getItem('eventsByDate'));
-                renderTimeline();
-            }
-        }
-
-        function updateCalendar() {
-            const selectedDateInput = document.getElementById("selectedDate");
-            currentDate = new Date(selectedDateInput.value);
-            renderCalendar();
-            renderTimeline();
-        }
-
-        function renderCalendar() {
-            const calendarContainer = document.getElementById("calendar");
-            const eventContainer = document.getElementById("eventContainer");
-            calendarContainer.innerHTML = ""; // Clear previous content
-            eventContainer.style.display = "block";
-
-            const dateHeader = document.createElement("h2");
-            dateHeader.textContent = currentDate.toDateString();
-            calendarContainer.appendChild(dateHeader);
-        }
+         renderTimeline();
 
         function renderTimeline() {
             const timelineContainer = document.getElementById("timeline");
             timelineContainer.innerHTML = ""; // Clear previous content
 
-            const selectedDateKey = formatDate(currentDate);
+            const selectedDateKey = formatDate(new Date());
             const events = eventsByDate[selectedDateKey] || [];
 
             events.forEach(event => {
@@ -147,7 +118,7 @@
                 dateTime: eventDateTimeInput.value,
             };
 
-            const selectedDateKey = formatDate(currentDate);
+            const selectedDateKey = formatDate(new Date());
             eventsByDate[selectedDateKey] = eventsByDate[selectedDateKey] || [];
             eventsByDate[selectedDateKey].push(eventDetails);
 
@@ -165,32 +136,13 @@
             const confirmation = confirm(`Do you want to delete the study reminder "${selectedEvent.name}"?`);
             
             if (confirmation) {
-                const selectedDateKey = formatDate(currentDate);
+                const selectedDateKey = formatDate(new Date());
                 eventsByDate[selectedDateKey] = eventsByDate[selectedDateKey].filter(event => event !== selectedEvent);
                 renderTimeline();
                 
                 // Save events to Local Storage after deleting an event
                 saveEventsToLocalStorage();
             }
-        }
-
-        function checkReminders() {
-            const currentTime = new Date();
-            const selectedDateKey = formatDate(currentDate);
-            const events = eventsByDate[selectedDateKey] || [];
-
-            events.forEach(event => {
-                const eventDateTime = new Date(event.dateTime);
-
-                if (currentTime > eventDateTime && !event.alerted) {
-                    alert(`Study reminder "${event.name}"!`);
-                    event.alerted = true; // Set a flag to avoid repeated alerts
-                    renderTimeline(); // Refresh the timeline after marking an event as alerted
-                    
-                    // Save events to Local Storage after marking an event as alerted
-                    saveEventsToLocalStorage();
-                }
-            });
         }
 
         function saveEventsToLocalStorage() {
