@@ -7,10 +7,12 @@ body {
 }
 
 h1 {
+    top: 5px;
     color: rgb(119, 138, 213);
-    text-align: center; /* Centering the Notepad title */
-}
-
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Trebuchet MS';
+  }
 label {
     font-weight: bold;
     margin-right: 5px;
@@ -38,10 +40,17 @@ button {
 
 button.edit {
     background-color: #28a745;
+    transition: background-color 0.1s, font-size 0.1s;
 }
-
+button.edit:hover { 
+    font-size: 18px;
+}
 button.delete {
     background-color: #dc3545;
+    transition: background-color 0.1s, font-size 0.1s;
+}
+button.delete:hover { 
+    font-size: 18px;
 }
 
 #notes-container {
@@ -67,18 +76,32 @@ button.delete {
     margin-top: 10px;
 }
 
-/* Styling for the back button */
 #backButton {
-    font-size: 1em;
+    position: fixed; 
+    font-size: 20px;
     font-family: 'Trebuchet MS';
-    margin-top: auto;
-    margin-bottom: 20px;
-    margin-left: 10px;
-    margin-right: auto;
-    padding: 10px;
+    top: 10px; 
+    left: 10px; 
+    margin-bottom: 10px;
+    margin-left: 10px; 
     cursor: pointer;
     background-color: rgb(119, 138, 213);
-    color: #fff;
+    color:black; 
     border: none;
     border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    transition: background-color 0.1s, font-size 0.1s;
+}
+#backButton:hover { 
+    background-color: rgb(255, 255, 255);
+    font-size: 25px;
+}
+#saveNote { 
+    transition: background-color 0.1s, font-size 0.1s;
+    color:black; 
+}
+#saveNote:hover { 
+    background-color: rgb(255, 255, 255);
+    font-size: 18px;
 }

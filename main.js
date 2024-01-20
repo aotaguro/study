@@ -1,3 +1,4 @@
+//This code is pointless just ignore this
 var width = window.innerWidth;
 var height = window.innerHeight;
 function setup() {
@@ -6,3 +7,4 @@ function setup() {
 function draw() { 
     
 }
+
