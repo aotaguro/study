@@ -7,29 +7,60 @@ body {
     color: rgb(194, 202, 211);
 }
 
-button {
-    font-size: 16px;
+.previous {
+    bottom:120px; 
+    position: fixed;
+    font-size: 20px;
     /* Adjusted font size for better scaling */
-    color: #fff;
     background-color: rgb(119, 138, 213);
     border: none;
     border-radius: 5px;
     cursor: pointer;
     padding: 10px;
     margin-bottom: 20px;
+    transition: background-color 0.1s, font-size 0.1s;
 }
-
+.previous:hover { 
+    background-color: rgb(255, 255, 255);
+    font-size: 25px; 
+  }
+.next { 
+    position: fixed;
+    bottom:120px; 
+    left: 140px;
+    font-size: 20px;
+    /* Adjusted font size for better scaling */
+    background-color: rgb(119, 138, 213);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 20px;
+    transition: background-color 0.1s, font-size 0.1s;
+}
+.next:hover { 
+    background-color: rgb(255, 255, 255);
+    font-size: 25px;
+}
 #backButton {
-    font-size: 1em;
+    position: fixed; 
+    font-size: 20;
     font-family: 'Trebuchet MS';
-    margin-left: 10px;
+    bottom: 40; 
+    left: 10; 
+    margin-bottom: 10px;
+    margin-left: 10px; 
     cursor: pointer;
     background-color: rgb(119, 138, 213);
-    color: #fff;
     border: none;
     border-radius: 5px;
     padding: 10px;
     display: inline-block;
+    transition: background-color 0.1s, font-size 0.1s;
+}
+#backButton:hover { 
+    background-color: rgb(255, 255, 255);
+    font-size: 25px;
 }
 
 .event {
@@ -37,4 +68,19 @@ button {
     background: rgb(50, 90, 200);
     border: none;
     border-radius: 10px;
+}
+#year{ 
+    position: relative;
+    bottom: -25px;   
+    left: 200px;
+}
+#month { 
+    position: relative;
+    left: 200px;
+    bottom: -25px;  
+}
+#label { 
+    position: relative; 
+    left: 200px; 
+    bottom: -25px;  
 }
