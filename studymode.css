@@ -1,11 +1,9 @@
 h1 {
-    font-family: 'Trebuchet MS';
-    text-align: center;
     color: rgb(119, 138, 213);
-    margin: 40px 0;
-    padding: 0;
-    font-size: 50px;
-}
+    text-align: center;
+    font-size: 60px;
+    font-family: 'Trebuchet MS';
+  }
 body {
     font-family: 'Trebuchet MS';
     text-align: center;
@@ -21,13 +19,40 @@ body {
 
 #stopwatch {
     font-size: 5.5em;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 #controls {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+}
+#start { 
+    transition: background-color 0.1s, font-size 0.1s;
+    position: fixed;
+    left: 495px; 
+}
+#start:hover { 
+    background-color: rgb(255, 255, 255);
+    font-size: 25px; 
+}
+#stop { 
+    transition: background-color 0.1s, font-size 0.1s;
+    position: fixed;
+    left: 595px; 
+}
+#stop:hover { 
+    background-color: rgb(255, 255, 255);
+    font-size: 25px; 
+}
+#reset { 
+    transition: background-color 0.1s, font-size 0.1s;
+    position: fixed;
+    left: 695px; 
+}
+#reset:hover { 
+    background-color: rgb(255, 255, 255);
+    font-size: 25px; 
 }
 
 button {
@@ -37,13 +62,12 @@ button {
     padding: 10px;
     cursor: pointer;
     background-color: rgb(119, 138, 213);
-    color: #fff;
     border: none;
     border-radius: 5px;
 }
 
 #backButton {
-    font-size: 1em;
+    font-size: 20px;
     font-family: 'Trebuchet MS';
     margin-top: auto;
     margin-bottom: 20px;
@@ -52,7 +76,11 @@ button {
     padding: 10px;
     cursor: pointer;
     background-color: rgb(119, 138, 213);
-    color: #fff;
+    transition: background-color 0.1s, font-size 0.1s;
     border: none;
     border-radius: 5px;
+}
+#backButton:hover { 
+    background-color: rgb(255, 255, 255);
+    font-size: 25px; 
 }
