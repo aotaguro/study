@@ -1,7 +1,7 @@
 h1 {
   color: rgb(119, 138, 213);
   text-align: center;
-  font-size: 40px;
+  font-size: 60px;
   font-family: 'Trebuchet MS';
 }
 
@@ -9,74 +9,71 @@ body {
   background-color: rgb(78, 81, 85);
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-}
-
-div {
-  border: none;
-  margin: 10px;
-}
-
-div.box1,
-div.box2,
-div.box3,
-div.box4 {
-  width: 200px;
-  height: 200px;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  border: none;
-}
 .calender-button {
-  position: relative; /* Set the positioning context */
-  top: -220px; /* Move the button up by x pixels */
-  margin-left: 195px;
+  position: fixed; /* Set the positioning context */
+  bottom: 250px; 
+  margin-left: 140px;
   font-size: 18px;
   padding: 85px 62px; /* Adjust the padding for a more reasonable size */
   background-color: rgb(119, 138, 213);
   border-radius: 40px;
   font-family: 'Trebuchet MS';
+  transition: background-color 0.1s, font-size 0.1s;
+}
+.calender-button:hover { 
+  background-color: rgb(255, 255, 255);
+  font-size: 20px; 
 }
 
 .studymode-button {
-  position: relative; /* Set the positioning context */
-  top: -220px; /* Move the button up by x pixels */
-  margin-left: 18px;
+  position: fixed; /* Set the positioning context */
+  bottom: 250px; 
+  margin-left: 390px;
   font-size: 18px;
   padding: 85px 55px; /* Adjust the padding for a more reasonable size */
   background-color: rgb(119, 138, 213);
   border-radius: 40px;
   font-family: 'Trebuchet MS'; 
+  transition: background-color 0.1s, font-size 0.1s;
+}
+.studymode-button:hover { 
+  background-color: rgb(255, 255, 255);
+  font-size: 20px; 
 }
 .notepad-button {
-  position: relative; /* Set the positioning context */
-  top: -220px; /* Move the button up by x pixels */
-  margin-left: 18px;
+  position: fixed; /* Set the positioning context */
+  bottom: 250px; 
+  margin-left: 640px;
   font-size: 18px;
   padding: 85px 65px; /* Adjust the padding for a more reasonable size */
   background-color: rgb(119, 138, 213);
   border-radius: 40px;
   font-family: 'Trebuchet MS';
+  transition: background-color 0.1s, font-size 0.1s;
+}
+.notepad-button:hover { 
+  background-color: rgb(255, 255, 255);
+  font-size: 20px; 
 }
 .overview-button {
-  position: relative; /* Set the positioning context */
-  top: -220px; /* Move the button up by x pixels */
-  margin-left: 18px;
+  position: fixed; /* Set the positioning context */
+  bottom: 250px;
+  margin-left: 890px;
   font-size: 18px;
   padding: 85px 65px; /* Adjust the padding for a more reasonable size */
   background-color: rgb(119, 138, 213);
   border-radius: 40px;
   font-family: 'Trebuchet MS';
+  transition: background-color 0.1s, font-size 0.1s;
+}
+.overview-button:hover { 
+  background-color: rgb(255, 255, 255);
+  font-size: 20px; 
 }
  /* Style for the circular "?" button */
  #helpButton {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background-color: rgb(119, 138, 213);
   color: black;
@@ -86,6 +83,11 @@ div.box4 {
   bottom: 20px;
   right: 20px;
   font-size: 18px;
+  transition: background-color 0.1s, font-size 0.1s;
+}
+#helpButton:hover { 
+  background-color: rgb(255, 255, 255);
+  font-size: 25px; 
 }
 
 /* Style for the white box (fixed size with scrolling) */
@@ -95,7 +97,7 @@ div.box4 {
   bottom: 70px;
   right: 20px;
   width: 300px; /* Adjust the width as needed */
-  height: 200px; /* Adjust the height as needed */
+  height: 145px; /* Adjust the height as needed */
   padding: 15px;
   background-color: white;
   border: 1px solid #ccc;
