@@ -6,9 +6,13 @@ body {
     font-family: 'Trebuchet MS';
     color: rgb(194, 202, 211);
 }
+h1 {
+    color:rgb(119, 138, 213);
+    font-family: 'Trebuchet MS';
+}
 
 .previous {
-    bottom:120px; 
+    bottom:115px; 
     position: fixed;
     font-size: 20px;
     /* Adjusted font size for better scaling */
@@ -26,7 +30,7 @@ body {
   }
 .next { 
     position: fixed;
-    bottom:120px; 
+    bottom:115px; 
     left: 140px;
     font-size: 20px;
     /* Adjusted font size for better scaling */
