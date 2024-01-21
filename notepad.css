@@ -16,6 +16,7 @@ h1 {
 label {
     font-weight: bold;
     margin-right: 5px;
+    font-size: 20px;
 }
 
 input, textarea {
@@ -100,6 +101,7 @@ button.delete:hover {
 #saveNote { 
     transition: background-color 0.1s, font-size 0.1s;
     color:black; 
+    font-family: 'Trebuchet MS';
 }
 #saveNote:hover { 
     background-color: rgb(255, 255, 255);
