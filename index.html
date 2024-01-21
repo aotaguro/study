@@ -9,37 +9,42 @@
 <body>
   <h1>StudySort</h1>
 
-  
 
-    <!-- Circular "?" Button -->
-    <button id="helpButton" onclick="toggleHelp()">?</button>
 
-    <!-- White Box (initially hidden) -->
-    <div id="helpBox">
-        <p>Welcome To StudySort!<br><br>Calendar:<br><br> A simple calendar tool to manage and view events.To make an event click on a cell and input a name.
-           To delete any events right click on top of them. Use the buttons on the bottom to navigate <br><br>
-          StudyMode:<br><br>A stopwatch style studying clock that alerts you after 30 min of studying to give yourself a short break. 
-        Use start, stop, and reset features to perform their respective actions.<br><br>Notepad:<br><br>A simple notepad with creating, editing, and deleting features with their respective buttons<br><br>
-       StudyPlanner:<br><br>Set reminders to alert you to do certain tasks. Use the dropdown menu to select dates and times for you to get notified. 
-       Make sure to name your events and hit the add event button.  
-       You can delete the events that you create by right clicking on them. 
-      </p>
-    </div>
+  <!-- Circular "?" Button -->
+  <button id="helpButton" onclick="toggleHelp()">?</button>
 
-  
+  <!-- White Box (initially hidden) -->
+  <div id="helpBox">
+    <p>Welcome To StudySort!<br><br>Calendar:<br><br> A simple calendar tool to manage and view events.To make an event
+      click on a cell and input a name.
+      To delete any events right click on top of them. Use the buttons on the bottom to navigate <br><br>
+      StudyMode:<br><br>A stopwatch style studying clock that alerts you after 30 min of studying to give yourself a
+      short break.
+      Use start, stop, and reset features to perform their respective actions.<br><br>Notepad:<br><br>A simple notepad
+      with creating, editing, and deleting features with their respective buttons<br><br>
+      StudyPlanner:<br><br>Set reminders to alert you to do certain tasks. Use the dropdown menu to select dates and
+      times for you to get notified.
+      Make sure to name your events and hit the add event button.
+      You can delete the events that you create by right clicking on them.
+    </p>
+  </div>
+
+
   <script src="notifications.js"></script>
 
   <script>
 
     function toggleHelp() {
-        var helpBox = document.getElementById("helpBox");
-        if (helpBox.style.display == "none") {
-            helpBox.style.display = "block";
-        } else {
-            helpBox.style.display = "none";
-        }
+      var helpBox = document.getElementById("helpBox");
+      var currentDisplayStyle = window.getComputedStyle(helpBox).getPropertyValue("display");
+      if (currentDisplayStyle === "none") {
+        helpBox.style.display = "block";
+      } else {
+        helpBox.style.display = "none";
+      }
     }
-</script>
+  </script>
 </body>
 
 <a href="calendar.html">
