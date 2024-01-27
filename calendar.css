@@ -1,75 +1,83 @@
 body {
     padding: 20px;
-    background-color: rgb(78, 81, 85);
+    background-color: #161238;
     font-size: 20px;
     /* Adjusted font size for better scaling */
     font-family: 'Trebuchet MS';
     color: rgb(194, 202, 211);
 }
 h1 {
-    color:rgb(119, 138, 213);
+    color:#6f1df2;
     font-family: 'Trebuchet MS';
+    font-size: 50px;
+    
 }
 
 .previous {
-    bottom:115px; 
+    bottom:70px; 
     position: fixed;
     font-size: 20px;
     /* Adjusted font size for better scaling */
-    background-color: rgb(119, 138, 213);
+    background-color: #6f1df2;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     padding: 10px;
     margin-bottom: 20px;
     transition: background-color 0.1s, font-size 0.1s;
+    color: #d4e2e3; 
 }
 .previous:hover { 
     background-color: rgb(255, 255, 255);
     font-size: 25px; 
+    color:black; 
   }
 .next { 
     position: fixed;
-    bottom:115px; 
+    bottom:70px; 
     left: 140px;
     font-size: 20px;
     /* Adjusted font size for better scaling */
-    background-color: rgb(119, 138, 213);
+    background-color: #6f1df2;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     padding: 10px;
     margin-bottom: 20px;
     transition: background-color 0.1s, font-size 0.1s;
+    color: #d4e2e3; 
 }
 .next:hover { 
     background-color: rgb(255, 255, 255);
     font-size: 25px;
+    color:black; 
 }
 #backButton {
     position: fixed; 
     font-size: 20;
     font-family: 'Trebuchet MS';
-    bottom: 40; 
+    bottom: 10; 
     left: 10; 
     margin-bottom: 10px;
     margin-left: 10px; 
     cursor: pointer;
-    background-color: rgb(119, 138, 213);
+    background-color: #6f1df2;
     border: none;
     border-radius: 5px;
     padding: 10px;
     display: inline-block;
     transition: background-color 0.1s, font-size 0.1s;
+    color: #d4e2e3; 
 }
 #backButton:hover { 
     background-color: rgb(255, 255, 255);
     font-size: 25px;
+    color:black; 
 }
 
 .event {
     padding: 1px 0 0 10px;
-    background: rgb(50, 90, 200);
+    background: #6f1df2;
     border: none;
     border-radius: 10px;
 }
