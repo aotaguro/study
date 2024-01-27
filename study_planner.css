@@ -1,6 +1,6 @@
 body {
   font-family: 'Trebuchet MS';
-  background-color: rgb(78, 81, 85);
+  background-color:#161238;
   margin: 0;
   padding: 0;
   display: flex;
@@ -8,11 +8,11 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  color: rgb(119, 138, 213);
+  color: #6f1df2;
 }
 
 h1 {
-  color: rgb(119, 138, 213);
+  color: #6f1df2;
   margin-bottom: 20px;
   font-size: 60px;;
 }
@@ -39,8 +39,8 @@ input {
   overflow-x: auto;
 }
 .event {
-  background-color: rgb(119, 138, 213);
-  color: black;
+  background-color: #6f1df2;
+  color: #d4e3e2;
   padding: 10px;
   margin: 5px;
   border-radius: 5px;
@@ -51,11 +51,12 @@ input {
 .event:hover { 
   background-color: rgb(255, 255, 255);
   font-size: 18px; 
+  color:black; 
 }
 #eventContainer { 
   text-align-last: center;
   font-size: 25px; 
-  color: white; 
+  color: #d4e3e2; 
   padding: 10px;
   margin: 5px;
   border-radius: 5px;
@@ -71,12 +72,14 @@ input {
   margin-right: auto;
   padding: 10px;
   cursor: pointer;
-  background-color: rgb(119, 138, 213);
+  background-color: #6f1df2;
   border: none;
   border-radius: 5px;
   transition: background-color 0.1s, font-size 0.1s;
+  color: #d4e3e2; 
 }
 #backButton:hover { 
   background-color: rgb(255, 255, 255);
-  font-size: 25px; 
+  font-size: 25px;
+  color: black; 
 }

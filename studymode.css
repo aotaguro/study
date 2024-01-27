@@ -85,8 +85,10 @@ button {
     transition: background-color 0.1s, font-size 0.1s;
     border: none;
     border-radius: 5px;
+    color:#d4e3e2;
 }
 #backButton:hover { 
     background-color: rgb(255, 255, 255);
     font-size: 25px; 
+    color:black;
 }
