@@ -1,93 +1,153 @@
+.colorBox1 { 
+  background-color:#403962; 
+  position: fixed; 
+  z-index: -1;
+  width: 100%; 
+  height: 60px; 
+   
+
+}
+.colorBox2 { 
+  background-color:rgba(0, 0, 0, .4); 
+  position: fixed; 
+  z-index: 0;
+  width: 45%; 
+  height: 100%; 
+  top:0px;
+  bottom:0px; 
+  right: 0px; 
+}
 h1 {
-  color: rgb(119, 138, 213);
-  text-align: center;
-  font-size: 60px;
+  color: #6f1df2;
+  text-align: left;
+  font-size: 50px;
   font-family: 'Trebuchet MS';
+  margin-top:0px; 
+  margin-left:25px; 
+  top:0px; 
 }
-
+h2 { 
+  position:fixed; 
+  color: #6f1df2;
+  font-size: 40px;
+  font-family:'Trebuchet MS';
+  margin-right: 20px;  
+  top:205px;
+  left:80px;
+}
+h3 { 
+  position:fixed; 
+  color: #6f1df2;
+  font-size: 40px;
+  font-family:'Trebuchet MS';
+  margin-right: 20px;  
+  top:150px;
+  left:25px;
+  font-weight: 1000;
+}
 body {
-  background-color: rgb(78, 81, 85);
+  background-color: #161238;
+  margin:0px; 
 }
-
 .calender-button {
   position: fixed; /* Set the positioning context */
-  bottom: 250px; 
-  margin-left: 140px;
+  bottom:55%; 
+  right:60px;
+  margin-left: 155px;
   font-size: 18px;
-  padding: 85px 62px; /* Adjust the padding for a more reasonable size */
-  background-color: rgb(119, 138, 213);
+  height: 60px  ; 
+  width: 200px ; 
+  background-color: #6f1df2;
   border-radius: 40px;
   font-family: 'Trebuchet MS';
   transition: background-color 0.1s, font-size 0.1s;
+  color:#d4e2e3;
+
 }
 .calender-button:hover { 
   background-color: rgb(255, 255, 255);
   font-size: 20px; 
+  color:black; 
 }
-
 .studymode-button {
   position: fixed; /* Set the positioning context */
-  bottom: 250px; 
-  margin-left: 390px;
+  bottom: 55%; 
+  right:310px; 
+  margin-left: 405px;
   font-size: 18px;
-  padding: 85px 55px; /* Adjust the padding for a more reasonable size */
-  background-color: rgb(119, 138, 213);
+  height: 60px  ; 
+  width: 200px ; 
+  background-color: #6f1df2;
   border-radius: 40px;
   font-family: 'Trebuchet MS'; 
   transition: background-color 0.1s, font-size 0.1s;
+  color:#d4e2e3;
 }
 .studymode-button:hover { 
   background-color: rgb(255, 255, 255);
   font-size: 20px; 
+  color:black; 
+
 }
 .notepad-button {
   position: fixed; /* Set the positioning context */
-  bottom: 250px; 
-  margin-left: 640px;
+  bottom: 40%; 
+  right:60px; 
+  margin-left: 655px;
   font-size: 18px;
-  padding: 85px 65px; /* Adjust the padding for a more reasonable size */
-  background-color: rgb(119, 138, 213);
+  height: 60px  ; 
+  width: 200px ; 
+  background-color: #6f1df2;
   border-radius: 40px;
   font-family: 'Trebuchet MS';
   transition: background-color 0.1s, font-size 0.1s;
+  color:#d4e2e3;
 }
 .notepad-button:hover { 
   background-color: rgb(255, 255, 255);
   font-size: 20px; 
+  color:black; 
+
 }
 .overview-button {
+  height: 60px  ; 
+  width: 200px ; 
   position: fixed; /* Set the positioning context */
-  bottom: 250px;
-  margin-left: 890px;
+  bottom: 40%;
+  right:310px; 
+  margin-left: 905px;
   font-size: 18px;
-  padding: 85px 65px; /* Adjust the padding for a more reasonable size */
-  background-color: rgb(119, 138, 213);
-  border-radius: 40px;
+  background-color: #6f1df2;
+  border-radius: 60px;
   font-family: 'Trebuchet MS';
   transition: background-color 0.1s, font-size 0.1s;
+  color:#d4e2e3;
 }
 .overview-button:hover { 
   background-color: rgb(255, 255, 255);
   font-size: 20px; 
+  color:black; 
+
 }
  /* Style for the circular "?" button */
  #helpButton {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background-color: rgb(119, 138, 213);
-  color: black;
+  background-color: #6f1df2;
+  color:#d4e2e3;
   border: none;
   cursor: pointer;
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  left: 20px;
   font-size: 18px;
   transition: background-color 0.1s, font-size 0.1s;
 }
 #helpButton:hover { 
   background-color: rgb(255, 255, 255);
   font-size: 25px; 
+  color:black; 
 }
 
 /* Style for the white box (fixed size with scrolling) */
@@ -95,9 +155,9 @@ body {
   display: none;
   position: fixed;
   bottom: 70px;
-  right: 20px;
+  left: 25px;
   width: 300px; /* Adjust the width as needed */
-  height: 145px; /* Adjust the height as needed */
+  height: 130px; /* Adjust the height as needed */
   padding: 15px;
   background-color: white;
   border: 1px solid #ccc;
