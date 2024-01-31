@@ -29,8 +29,8 @@ body {
 }
 #start { 
     transition: background-color 0.1s, font-size 0.1s;
-    position: fixed;
-    left: 495px; 
+    position: relative;
+    top:1%; 
     color:#d4e3e2;
 }
 #start:hover { 
@@ -40,9 +40,9 @@ body {
 }
 #stop { 
     transition: background-color 0.1s, font-size 0.1s;
-    position: fixed;
-    left: 595px; 
+    position: relative;
     color:#d4e3e2;
+    top:1%; 
 }
 #stop:hover { 
     background-color: rgb(255, 255, 255);
@@ -51,13 +51,14 @@ body {
 }
 #reset { 
     transition: background-color 0.1s, font-size 0.1s;
-    position: fixed;
-    left: 695px; 
+    position: relative;
     color:#d4e3e2;
+    align-self:center; 
+    top:1%; 
 }
 #reset:hover { 
     background-color: rgb(255, 255, 255);
-    font-size: 25px; 
+    font-size:25px; 
     color: black; 
 }
 
