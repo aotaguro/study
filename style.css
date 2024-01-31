@@ -32,8 +32,8 @@ h2 {
   font-size: 40px;
   font-family:'Trebuchet MS';
   margin-right: 20px;  
-  top:205px;
-  left:80px;
+  top:38%;
+  left:8%;
 }
 h3 { 
   position:fixed; 
@@ -41,9 +41,8 @@ h3 {
   font-size: 40px;
   font-family:'Trebuchet MS';
   margin-right: 20px;  
-  top:150px;
-  left:25px;
-  font-weight: 1000;
+  top:30%;
+  left:5%;
 }
 body {
   background-color: #161238;

@@ -52,7 +52,7 @@ h1 {
 }
 #backButton {
     position: fixed; 
-    font-size: 20;
+    font-size: 20px;
     font-family: 'Trebuchet MS';
     bottom: 10; 
     left: 10; 
